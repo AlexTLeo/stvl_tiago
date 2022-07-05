@@ -10,13 +10,13 @@ In this analysis, the performance of the Spatio-Temporal Voxel Layer was tested 
 - more
 
 ## Procedure
-### Installation
+### 1. Installation
 Firstly, we installed the _Galactic Geochelone_ distribution of **ROS2**. On top of that, we installed v2.1.0 of the ROS2 **Navigation 2 Framework**, alongside the STVL plugin, which was then added to the simulation parameter .yaml file.
 More specifically, we used the **nav2_bringup** simulation, and we added the STVL layers as plugins to the **nav2_params.yaml**.
 
-### Tuning
+### 2. Tuning
 
-### Testing & Criteria
+### 3. Testing & Criteria
 
 ## Results
 
