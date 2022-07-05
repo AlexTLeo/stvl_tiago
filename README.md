@@ -1,7 +1,7 @@
 **Authors:** Samuele Depalo, Alex Thanaphon Leonardi, Alice Rivi
 
 # Analysis of the Spatio-Temporal Voxel Layer (STVL)
-====================================================
+-------------------------------------------------------------------------------
 ## Introduction
 In this analysis, the performance of the Spatio-Temporal Voxel Layer was tested according to several relevant benchmarks:
 - one
