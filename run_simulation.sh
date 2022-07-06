@@ -8,9 +8,9 @@
 # param3: true to RUN simulaton, false to build only
 
 # Modify launch file map and world names
-awk '{gsub(/map+\_+[a-z]+\.+yaml/, '$1')}1' navigation2/nav2_bringup/bringup/launch/tb3_simulation_launch.py > tb3_simulation_launch_new.py
+awk '{gsub(/map+\_+[a-z+0-9]+\.+yaml/, "'$1'")}1' navigation2/nav2_bringup/bringup/launch/tb3_simulation_launch.py > tb3_simulation_launch_new.py
 mv tb3_simulation_launch_new.py tb3_simulation_launch.py
-awk '{gsub(/world+\_+[a-z]+\.+model/, '$2')}1' navigation2/nav2_bringup/bringup/launch/tb3_simulation_launch.py > tb3_simulation_launch_new.py
+awk '{gsub(/world+\_+[a-z+0-9]+\.+model/, "'$2'")}1' navigation2/nav2_bringup/bringup/launch/tb3_simulation_launch.py > tb3_simulation_launch_new.py
 mv tb3_simulation_launch_new.py tb3_simulation_launch.py
 
 # Build the simulation
