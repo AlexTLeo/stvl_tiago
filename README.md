@@ -26,8 +26,15 @@ The simulation was run on [Gazebo](https://gazebosim.org/home) and monitored on 
 ### 3. Testing & Criteria
 
 ## Encountered Issues
-A big issue that we encountered was in trying to use a simulated version of TIAGo in our environments.
+A big issue that we encountered was in trying to use a simulated version of TIAGo in our environments (since the experimental tests were conducted on TIAGo). STVL is written for ROS2, but TIAGo runs on ROS1. We looked around quite thoroughly around PAL Robotics' official GitHub, and although they provide numerous simulations and tutorials for ROS1 (understandably), their ROS2 brances are still in development and apparently inaccessible.
 
+A simulation of TIAGo on ROS2 does exist for WeBots, but there were several issues.
+<br>
+First of all, the RGBD camera is wrongly rotated.
+<br>
+Secondly, RViz insisted on listening to the wrong camera_info topic, so we had to write a node that republished all camera-related information towards said topic.
+<br>
+Even after finally correcting all camera-related issues, the STVL layer would not be displayed on RViz, giving no apparent errors. Instead of spending more time on this route, we decided to simply go back to what already worked well: applying STVL to turtlebot3 on Gazebo. This was much more time-effective as it allowed us to focus on the tests themselves.
 ## Results
 
 ## Conclusions
