@@ -212,7 +212,7 @@ local_costmap:
         observation_sources: pointcloud
         pointcloud:
           data_type: PointCloud2
-          topic: /TIAGo_Iron/camera
+          topic: /intel_realsense_r200_depth/points
           marking: true
           clearing: true
           obstacle_range: 3.0
@@ -307,7 +307,7 @@ global_costmap:
         observation_sources: pointcloud
         pointcloud:
           data_type: PointCloud2
-          topic: /TIAGo_Iron/camera
+          topic: /intel_realsense_r200_depth/points
           marking: true
           clearing: true
           obstacle_range: 3.0
