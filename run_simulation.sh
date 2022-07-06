@@ -8,13 +8,14 @@
 # param3: true to RUN simulaton, false to build only
 
 # Modify launch file map and world names
-awk '{gsub(/map+\_+[a-z+0-9]+\.+yaml/, "'$1'")}1' navigation2/nav2_bringup/bringup/launch/tb3_simulation_launch.py > tb3_simulation_launch_new.py
+cd navigation2/nav2_bringup/bringup/launch/
+awk '{gsub(/map+\_+[a-z+0-9]+\.+yaml/, "'$1'")}1' tb3_simulation_launch.py > tb3_simulation_launch_new.py
 mv tb3_simulation_launch_new.py tb3_simulation_launch.py
-awk '{gsub(/world+\_+[a-z+0-9]+\.+model/, "'$2'")}1' navigation2/nav2_bringup/bringup/launch/tb3_simulation_launch.py > tb3_simulation_launch_new.py
+awk '{gsub(/world+\_+[a-z+0-9]+\.+model/, "'$2'")}1' tb3_simulation_launch.py > tb3_simulation_launch_new.py
 mv tb3_simulation_launch_new.py tb3_simulation_launch.py
 
 # Build the simulation
-cd ..
+cd ../../../../../
 colcon build --packages-select nav2_bringup --allow-overriding nav2_bringup
 colcon build --packages-select-by-dep nav2_bringup
 

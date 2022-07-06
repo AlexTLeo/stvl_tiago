@@ -1,3 +1,15 @@
 [submodule "ros2-performance"]
 	path = ros2-performance
 	url = ./ros2-performance/
+[submodule "turtlebot3"]
+	path = turtlebot3
+	url = https://github.com/ROBOTIS-GIT/turtlebot3
+	branch = galactic-devel
+[submodule "turtlebot3_msgs"]
+	path = turtlebot3_msgs
+	url = https://github.com/ROBOTIS-GIT/turtlebot3_msgs
+	branch = galactic-devel
+[submodule "DynamixelSDK"]
+	path = DynamixelSDK
+	url = https://github.com/ROBOTIS-GIT/DynamixelSDK
+	branch = galactic-devel
