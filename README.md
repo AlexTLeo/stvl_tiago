@@ -21,9 +21,12 @@ More specifically, we used the **nav2_bringup** simulation, and we added the [ST
 
 The simulation was run on [Gazebo](https://gazebosim.org/home) and monitored on [RViz2](https://index.ros.org/p/rviz2/).
 
-### 2. Tuning
+### 2. Environment Building
+#### Mapping with SLAM
 
-### 3. Testing & Criteria
+### 3. Sensor Development
+
+### 4. Testing & Criteria
 
 ## Encountered Issues
 A big issue that we encountered was in trying to use a simulated version of TIAGo in our environments (since the experimental tests were conducted on TIAGo). STVL is written for ROS2, but TIAGo runs on ROS1. We looked around quite thoroughly around PAL Robotics' official GitHub, and although they provide numerous simulations and tutorials for ROS1 (understandably), their ROS2 brances are still in development and apparently inaccessible.
