@@ -1,6 +1,3 @@
-[submodule "ros2-performance"]
-	path = ros2-performance
-	url = ./ros2-performance/
 [submodule "turtlebot3"]
 	path = turtlebot3
 	url = https://github.com/ROBOTIS-GIT/turtlebot3
