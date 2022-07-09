@@ -78,8 +78,8 @@
       </camera>
     </gui>
     <physics type='ode'>
-      <real_time_update_rate>1000</real_time_update_rate>
-      <max_step_size>0.001</max_step_size>
+      <real_time_update_rate>200</real_time_update_rate>
+      <max_step_size>0.005</max_step_size>
       <real_time_factor>1</real_time_factor>
       <ode>
         <solver>
@@ -98,7 +98,7 @@
       </ode>
     </physics>
     <model name='turtlebot3_waffle'>
-      <pose>-2 -0.5 0.01 0 -0 0</pose>
+      <pose>0 0 0 0 -0 0</pose>
       <link name='base_footprint'>
         <self_collide>0</self_collide>
         <inertial>
@@ -570,14 +570,14 @@
           <update_rate>5</update_rate>
           <pose>0.064 -0.047 0.107 0 -0 0</pose>
           <camera name='realsense_depth_camera'>
-            <horizontal_fov>1.047</horizontal_fov>
+            <horizontal_fov>1.1</horizontal_fov>
             <image>
               <width>320</width>
               <height>240</height>
             </image>
             <clip>
               <near>0.1</near>
-              <far>100</far>
+              <far>200</far>
             </clip>
           </camera>
           <plugin name='intel_realsense_r200_depth_driver' filename='libgazebo_ros_camera.so'>

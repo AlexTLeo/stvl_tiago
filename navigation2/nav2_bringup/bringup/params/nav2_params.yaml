@@ -193,11 +193,11 @@ local_costmap:
         enabled: true
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 3.0
-        inflation_radius: 0.55
+        inflation_radius: 0.40
       stvl_layer:
         plugin: "spatio_temporal_voxel_layer/SpatioTemporalVoxelLayer"
         enabled: true
-        voxel_decay: 15.0
+        voxel_decay: 5.0
         decay_model: 0
         voxel_size: 0.05
         track_unknown_space: true
@@ -272,7 +272,7 @@ global_costmap:
       stvl_layer:
         plugin: "spatio_temporal_voxel_layer/SpatioTemporalVoxelLayer"
         enabled: true
-        voxel_decay: 15.
+        voxel_decay: 10000.
         decay_model: 0
         voxel_size: 0.05
         track_unknown_space: true
@@ -334,7 +334,7 @@ global_costmap:
         enabled: true
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 3.0
-        inflation_radius: 0.55
+        inflation_radius: 0.40
       always_send_full_costmap: True
   global_costmap_client:
     ros__parameters:

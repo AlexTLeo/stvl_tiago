@@ -96,8 +96,6 @@ Visualization Manager:
           Value: true
         imu_link:
           Value: true
-        map:
-          Value: true
         odom:
           Value: true
         wheel_left_link:
@@ -110,29 +108,7 @@ Visualization Manager:
       Show Axes: true
       Show Names: false
       Tree:
-        map:
-          odom:
-            base_footprint:
-              base_link:
-                base_scan:
-                  {}
-                camera_link:
-                  camera_depth_frame:
-                    camera_depth_optical_frame:
-                      {}
-                  camera_rgb_frame:
-                    camera_rgb_optical_frame:
-                      {}
-                caster_back_left_link:
-                  {}
-                caster_back_right_link:
-                  {}
-                imu_link:
-                  {}
-                wheel_left_link:
-                  {}
-                wheel_right_link:
-                  {}
+        {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -392,8 +368,8 @@ Visualization Manager:
     - Alpha: 0.30000001192092896
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 0.9444031119346619
-        Min Value: -0.0055985720828175545
+        Max Value: 1.010758876800537
+        Min Value: -0.01940649375319481
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -411,7 +387,7 @@ Visualization Manager:
       Position Transformer: XYZ
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.05000000074505806
+      Size (m): 0.10000000149011612
       Style: Boxes
       Topic:
         Depth: 5
@@ -445,7 +421,7 @@ Visualization Manager:
       Position Transformer: XYZ
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.05000000074505806
+      Size (m): 0.10000000149011612
       Style: Boxes
       Topic:
         Depth: 5

@@ -48,7 +48,7 @@
       </link>
     </model>
     <model name='turtlebot3_waffle'>
-      <pose>-2 -0.5 0.01 0 -0 0</pose>
+      <pose>0 0 0 0 -0 0</pose>
       <link name='base_footprint'>
         <self_collide>0</self_collide>
         <inertial>
@@ -702,9 +702,9 @@
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
-    <physics type='ode'>
-      <real_time_update_rate>1000</real_time_update_rate>
-      <max_step_size>0.001</max_step_size>
+    <physics type='ode'> <!-- real_time_update_rate * max_step_size = 1 -->
+      <real_time_update_rate>100</real_time_update_rate>
+      <max_step_size>0.008</max_step_size>
       <real_time_factor>1</real_time_factor>
       <ode>
         <solver>
@@ -992,18 +992,10 @@
           </waypoint>
           <waypoint>
             <time>5</time>
-            <pose>0 0 0 0 -0 0</pose>
-          </waypoint>
-          <waypoint>
-            <time>7</time>
             <pose>8 0 0 0 -0 0</pose>
           </waypoint>
           <waypoint>
-            <time>9</time>
-            <pose>0 0 0 0 -0 0</pose>
-          </waypoint>
-          <waypoint>
-            <time>14</time>
+            <time>10</time>
             <pose>-8 0 0 0 -0 0</pose>
           </waypoint>
         </trajectory>
