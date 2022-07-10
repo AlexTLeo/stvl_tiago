@@ -5,7 +5,7 @@
 ## Introduction
 In this analysis, the performance of the [Spatio-Temporal Voxel Layer](https://github.com/SteveMacenski/spatio_temporal_voxel_layer/tree/galactic) was tested, using a simulated turtlebot3 robot equipped with an RGBD camera, according to some benchmarks:
 - CPU consumption given different voxel sizes
-- RAM usage given different voxel decay times
+- RAM usage given different voxel sizes
 - Other qualitative observations
 
 Additionally, lab experiments will be conducted on the **TIAGo** robot from **PAL Robotics** to confirm our simulations.
@@ -33,14 +33,41 @@ Our costmap inflation layer was configured to use a radius of 0.40. The RGBD cam
 
 STVL can be configured to use different voxel sizes, meaning different levels of resolution in representing 3D environments. 
 
-For our **first test**, the **difference in CPU consumption** given **three different voxel sizes (0.01m, 0.05m, 0.1m)** was measured.
+### Test 1
+For our **first test**, the **difference in CPU consumption** given **three different voxel sizes (0.01m, 0.05m, 0.1m)** was measured. This was done by instructing the robot to navigate to the same specific waypoints, each time with different STVL voxel sizes. The CPU consumption was measured during each run, and the differences were extracted. This was then repeated on a total of two different test environments.
 
-| Voxel Size | CPU consumption |
-| ---------- | --------------- |
-| 0.01       | 41.2            |
+| Voxel Size | CPU consumption (%) |
+| ---------- | ------------------- |
+| 0.01       | 43.5                |
+| 0.05       | 42.1                |
+| 0.1        | 38.0                |
+
+Unexpectedly, the difference in CPU consumption given different voxel sizes is quite negligible, and is completely overshadowed by the results obtained in the next test.
+
+### Test 2
+STVL introduces the concept of voxel decay time, which determines how long each voxel will stay in memory for before being _forgotten_. The decay time can be configured for both the local and the global STVL layers.
+For our **second test**, the **RAM consumption** was monitored, given the same waypoints and maps as in the first test, but with the voxels in the global layer set to **never decay** and the ones in the local layer set to a 5 second decay time. This was done to measure the rate of RAM consumption over time, given different voxel sizes, and the results were interesting:
+
+| Voxel Size | RAM consumption  |
+| ---------- | ---------------- |
+| 0.1        | Very reasonable  |
+| 0.05       | Still reasonable |
+| 0.01       | Incredibly heavy, RAM overloaded |
+
+On a system with 16GB of RAM, the memory ran out after only one minute of simulation. This proves that it is very important to set a proper voxel decay time, so as to avoid a system crash. Of course, STVL was never meant to be used this way, and this was just a stress test. Mapping with STVL is indeed possible, but it is done by setting activating the **mapping mode** (i.e. setting mapping to TRUE in the params.yaml file). More on this below. 
+
+### Other observations
+Some other interesting observations were made:
+1. A bigger voxel size actually makes it harder for the robot to navigate tight corridors and pathways, because the limited space gets limited even further by overestimating obstacle sizes.
+2. By activating mapping mode, hundreds of thousands of voxels can be saved and viewed in just a few MBs (yes, Megabytes!) of data, using the **vdb_viewer** from [OpenVDB](https://www.openvdb.org/) (an open-source C++ library from DreamWorks which is at the core of STVL).
+3. In its default configuration, STVL actually sees floating voxels as obstacles, because the costmap projects them onto the floor. This means that small robots like turtlebot3 cannot navigate underneath empty spaces with an overhang, like tables or door frames. A solution that we have found around this issue is configuring two separate STVL layers: one for navigation, which only "sees" obstacles that are of the same height of the robot, and another layer which maps the whole environment around the robot. 
+
+### Conclusions
+STVL requires a lot of configuration and tuning to properly work, but is a very powerful plugin that is much more computationally efficient than the default nav2 voxel layer. It is versatile, as it can be used for simultaneous navigation and mapping, and it provides a very memory-efficient way of storing mapped data. 
 
 ## Encountered Issues
-A big issue that we encountered was in trying to use a simulated version of TIAGo in our environments (since the experimental tests were conducted on TIAGo). STVL is written for ROS2, but TIAGo runs on ROS1. We looked around quite thoroughly around PAL Robotics' official GitHub, and although they provide numerous simulations and tutorials for ROS1 (understandably), their ROS2 brances are still in development and apparently inaccessible.
+We found the documentation to be too superficial, both for navigation2 and STVL. A lot of things had to be discovered by trial-and-error, which requires a lot of time.
+Another big issue that we encountered was in trying to use a simulated version of TIAGo in our environments (since the experimental tests were conducted on TIAGo). STVL and Navigation2 are intended for ROS2, but TIAGo runs on ROS1. We looked around quite thoroughly around PAL Robotics' official GitHub, and although they provide numerous simulations and tutorials for ROS1 (understandably), their ROS2 branches are still in development and their .rosinstall files are not usable by unauthorised people. Additionally, there was no tutorial on running their simulations on ROS2. We tried manually scouring through their repositories and cross-checking .rosinstall files to try and understand all the necessary dependencies required to run their simulations, which we then
 
 A simulation of TIAGo on ROS2 does exist for WeBots, but there were several issues.
 <br>
