@@ -52,8 +52,8 @@ For our **second test**, the **RAM consumption** was monitored, given the same w
 | Voxel Size | RAM consumption  |
 | ---------- | ---------------- |
 | 0.1        | Very reasonable  |
-| 0.05       | Reasonable |
-| 0.01       | Incredibly heavy, RAM overloaded |
+| 0.05       | Moderate |
+| 0.01       | Incredibly heavy |
 
 On a system with 16GB of RAM, the memory ran out after only one minute of simulation. This proves that it is very important to set a proper voxel decay time, so as to avoid a system crash. Of course, STVL was never meant to be used this way, and this was just a stress test. Mapping with STVL is indeed possible, but it is done by setting activating the **mapping mode** (i.e. setting mapping to TRUE in the params.yaml file). More on this below. 
 
