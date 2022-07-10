@@ -23,10 +23,12 @@ The simulation was run on [Gazebo](https://gazebosim.org/home) and monitored on 
 ### 2. Environment Building
 To test the STVL plugin, we needed test environments through which to run the simulated robot. For this purpose, Gazebo was used to build the environments and SLAM was used to map them.
 
-#### Mapping with SLAM
-
-
-### 3. Sensor Development
+### 3. Mapping with SLAM
+We chose the SLAM toolbox to map our environments as it was the quickest option available to us. The toolbox was installed through apt, following the nav2 documentation ["Navigating While Mapping"](https://navigation.ros.org/tutorials/docs/navigation2_with_slam.html).  
+<br>
+With turtlebot3, running SLAM is very simple: the turtlebot3 simulation is called through its launch file, as per usual, but the slam parameter is set to true.
+<br>
+Then, using [teleop_twist_keyboard](http://wiki.ros.org/teleop_twist_keyboard), we explored the entire environment whilst mapping it, and then we saved the map through the map_saver_cli node, as detailed in the nav2 documentation ["Map Saver / Saver"](https://navigation.ros.org/configuration/packages/configuring-map-server.html).
 
 ## Testing
 Our costmap inflation layer was configured to use a radius of 0.40. The RGBD camera equipped on turtlebot3 was configured to have a horizontal FOV of 180°.
@@ -62,6 +64,7 @@ Some other interesting observations were made:
 1. A bigger voxel size actually makes it harder for the robot to navigate tight corridors and pathways, because the limited space gets limited even further by overestimating obstacle sizes.
 2. By activating mapping mode, hundreds of thousands of voxels can be saved and viewed in just a few MBs (yes, Megabytes!) of data, using the **vdb_viewer** from [OpenVDB](https://www.openvdb.org/) (an open-source C++ library from DreamWorks which is at the core of STVL).
 3. In its default configuration, STVL actually sees floating voxels as obstacles, because the costmap projects them onto the floor. This means that small robots like turtlebot3 cannot navigate underneath empty spaces with an overhang, like tables or door frames. A solution that we have found around this issue is configuring two separate STVL layers: one for navigation, which only "sees" obstacles that are of the same height of the robot, and another layer which maps the whole environment around the robot. 
+4. Moving obstacles are correctly visualised, but it is important to deactivate the global stvl layer and to set the local stvl layer to a very low value of voxel_decay
 
 ### Conclusions
 STVL requires a lot of configuration and tuning to properly work, but is a very powerful plugin that is much more computationally efficient than the default nav2 voxel layer. It is versatile, as it can be used for simultaneous navigation and mapping, and it provides a very memory-efficient way of storing mapped data. 
