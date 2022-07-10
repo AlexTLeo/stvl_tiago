@@ -28,7 +28,7 @@ To test the STVL plugin, we needed test environments through which to run the si
 
 ### 3. Sensor Development
 
-### 4. Testing & Configuration
+## Testing
 Our costmap inflation layer was configured to use a radius of 0.40. The RGBD camera equipped on turtlebot3 was configured to have a horizontal FOV of 180°.
 
 STVL can be configured to use different voxel sizes, meaning different levels of resolution in representing 3D environments. 
