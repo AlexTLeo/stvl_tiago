@@ -27,7 +27,6 @@ To test the STVL plugin, we needed test environments through which to run the si
 We chose the SLAM toolbox to map our environments as it was the quickest option available to us. The toolbox was installed through apt, following the nav2 documentation ["Navigating While Mapping"](https://navigation.ros.org/tutorials/docs/navigation2_with_slam.html).  
 <br>
 With turtlebot3, running SLAM is very simple: the turtlebot3 simulation is called through its launch file, as per usual, but the slam parameter is set to true.
-<br>
 Then, using [teleop_twist_keyboard](http://wiki.ros.org/teleop_twist_keyboard), we explored the entire environment whilst mapping it, and then we saved the map through the map_saver_cli node, as detailed in the nav2 documentation ["Map Saver / Saver"](https://navigation.ros.org/configuration/packages/configuring-map-server.html).
 
 ## Testing
