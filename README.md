@@ -3,13 +3,12 @@
 # Analysis of the Spatio-Temporal Voxel Layer (STVL)
 -------------------------------------------------------------------------------
 ## Introduction
-In this analysis, the performance of the [Spatio-Temporal Voxel Layer](https://github.com/SteveMacenski/spatio_temporal_voxel_layer/tree/galactic) was tested according to several relevant benchmarks:
-- one
-- two
-- three
-- more
+In this analysis, the performance of the [Spatio-Temporal Voxel Layer](https://github.com/SteveMacenski/spatio_temporal_voxel_layer/tree/galactic) was tested according to some relevant benchmarks:
+- CPU consumption given different voxel sizes
+- RAM usage given different voxel decay times
+- Other qualitative observations
 
-Additionally, lab experiments were conducted on the **TIAGo** robot from **PAL Robotics** to confirm our findings.
+Additionally, lab experiments will be conducted on the **TIAGo** robot from **PAL Robotics** to confirm our simulations.
 
 ## Procedure
 ### 1. Installation
