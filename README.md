@@ -67,17 +67,12 @@ STVL requires a lot of configuration and tuning to properly work, but is a very 
 
 ## Encountered Issues
 We found the documentation to be too superficial, both for navigation2 and STVL. A lot of things had to be discovered by trial-and-error, which requires a lot of time.
-Another big issue that we encountered was in trying to use a simulated version of TIAGo in our environments (since the experimental tests were conducted on TIAGo). STVL and Navigation2 are intended for ROS2, but TIAGo runs on ROS1. We looked around quite thoroughly around PAL Robotics' official GitHub, and although they provide numerous simulations and tutorials for ROS1 (understandably), their ROS2 branches are still in development and their .rosinstall files are not usable by unauthorised people. Additionally, there was no tutorial on running their simulations on ROS2. We tried manually scouring through their repositories and cross-checking .rosinstall files to try and understand all the necessary dependencies required to run their simulations, which we then
+Another big issue that we encountered was in trying to use a simulated version of TIAGo in our environments (since the experimental tests were conducted on TIAGo). STVL and Navigation2 are intended for ROS2, but TIAGo runs on ROS1. We looked around quite thoroughly around [PAL Robotics' official GitHub](https://github.com/pal-robotics/), and although they provide numerous simulations and tutorials for ROS1 (understandably), their ROS2 branches are still in development and their .rosinstall files are not usable by unauthorised people. Additionally, there was no tutorial on running their simulations on ROS2. We tried manually scouring through their repositories and cross-checking .rosinstall files to try and find all the necessary dependencies required to run their simulations, which we then installed manually one by one, but after dozens of additional required dependencies and failed attempts, we just gave up on this path. 
 
-A simulation of TIAGo on ROS2 does exist for WeBots, but there were several issues.
+One thing to note, though: a simulation of **TIAGo Iron** on ROS2 does exist for [WeBots](https://cyberbotics.com/), but there were several issues.
 <br>
 First of all, the RGBD camera is wrongly rotated.
 <br>
 Secondly, RViz insisted on listening to the wrong camera_info topic, so we had to write a node that republished all camera-related information towards said topic.
 <br>
 Even after finally correcting all camera-related issues, the STVL layer would not be displayed on RViz, giving no apparent errors. Instead of spending more time on this route, we decided to simply go back to what already worked well: applying STVL to turtlebot3 on Gazebo. This was much more time-effective as it allowed us to focus on the tests themselves.
-## Results
-
-## Conclusions
-
-## Future considerations
