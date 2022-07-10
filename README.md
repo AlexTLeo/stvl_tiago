@@ -30,7 +30,7 @@ To test the STVL plugin, we needed test environments through which to run the si
 
 ## Testing
 Our costmap inflation layer was configured to use a radius of 0.40. The RGBD camera equipped on turtlebot3 was configured to have a horizontal FOV of 180°.
-
+<br>
 STVL can be configured to use different voxel sizes, meaning different levels of resolution in representing 3D environments. 
 
 ### Test 1
@@ -46,6 +46,7 @@ Unexpectedly, the difference in CPU consumption given different voxel sizes is q
 
 ### Test 2
 STVL introduces the concept of voxel decay time, which determines how long each voxel will stay in memory for before being _forgotten_. The decay time can be configured for both the local and the global STVL layers.
+<br>
 For our **second test**, the **RAM consumption** was monitored, given the same waypoints and maps as in the first test, but with the voxels in the global layer set to **never decay** and the ones in the local layer set to a 5 second decay time. This was done to measure the rate of RAM consumption over time, given different voxel sizes, and the results were interesting:
 
 | Voxel Size | RAM consumption  |
@@ -67,8 +68,10 @@ STVL requires a lot of configuration and tuning to properly work, but is a very 
 
 ## Encountered Issues
 We found the documentation to be too superficial, both for navigation2 and STVL. A lot of things had to be discovered by trial-and-error, which requires a lot of time.
+<br>
 Another big issue that we encountered was in trying to use a simulated version of TIAGo in our environments (since the experimental tests were conducted on TIAGo). STVL and Navigation2 are intended for ROS2, but TIAGo runs on ROS1. We looked around quite thoroughly around [PAL Robotics' official GitHub](https://github.com/pal-robotics/), and although they provide numerous simulations and tutorials for ROS1 (understandably), their ROS2 branches are still in development and their .rosinstall files are not usable by unauthorised people. Additionally, there was no tutorial on running their simulations on ROS2. We tried manually scouring through their repositories and cross-checking .rosinstall files to try and find all the necessary dependencies required to run their simulations, which we then installed manually one by one, but after dozens of additional required dependencies and failed attempts, we just gave up on this path. 
 
+<br>
 One thing to note, though: a simulation of **TIAGo Iron** on ROS2 does exist for [WeBots](https://cyberbotics.com/), but there were several issues.
 <br>
 First of all, the RGBD camera is wrongly rotated.
