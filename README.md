@@ -18,7 +18,7 @@ $ mkdir stvl_ws && cd stvl_ws && mkdir src && cd src
 $ git clone https://github.com/ThanaphonLeonardi/stvl_tiago
 $ cd .. && colcon build
 ```
-- Install the STVL package and turtlebot3 package:
+- Install the STVL package and the turtlebot3 package:
 ```
 $ sudo apt-get install ros-galactic-spatio-temporal-voxel-layer
 $ sudo apt install ros-galactic-turtlebot3*
