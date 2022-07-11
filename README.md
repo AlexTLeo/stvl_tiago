@@ -10,6 +10,33 @@ In this analysis, the performance of the [Spatio-Temporal Voxel Layer](https://g
 
 Additionally, lab experiments will be conducted on the **TIAGo** robot from **PAL Robotics** to confirm our simulations.
 
+## Quick Start
+Install [ROS2 Galactic](https://docs.ros.org/en/galactic/Installation/Alternatives/Ubuntu-Development-Setup.html)
+<br>
+Clone this repository in a new workspace and build it
+```
+$ mkdir stvl_ws && cd stvl_ws && mkdir src && cd src
+$ git clone https://github.com/ThanaphonLeonardi/stvl_tiago
+$ cd .. && colcon build
+```
+<br>
+Install the STVL package
+```
+$ sudo apt-get install ros-galactic-spatio-temporal-voxel-layer
+```
+<br>
+Source ROS2 and set appropriate environment variables for turtlebot3
+```
+$ source /opt/ros/galactic/setup.bash
+$ export TURTLEBOT3_MODEL=waffle
+$ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/<ros2-distro>/share/turtlebot3_gazebo/models
+```
+<br>
+Run via the simple script that is found in the src directory:
+```
+$ ./run_simulation.sh house true
+```
+
 ## Procedure
 ### 1. Installation
 Firstly, we installed the [Galactic Geochelone](https://docs.ros.org/en/galactic/index.html) distribution of **ROS2**.
@@ -29,6 +56,12 @@ We chose the SLAM toolbox to map our environments as it was the quickest option 
 <br>
 With turtlebot3, running SLAM is very simple: the turtlebot3 simulation is called through its launch file, as per usual, but the slam parameter is set to true.
 Then, using [teleop_twist_keyboard](http://wiki.ros.org/teleop_twist_keyboard), we explored the entire environment whilst mapping it, and then we saved the map through the map_saver_cli node, as detailed in the nav2 documentation ["Map Saver / Saver"](https://navigation.ros.org/configuration/packages/configuring-map-server.html).
+
+### 4. Running
+A few scripts were written to aid in testing. See the **Quick Start** for examples.
+- **run_simulation.sh**: takes two arguments (string: environment name, boolean: run simulation or not) and modifies the corresponding fields in the launch file to load the correct environment; builds the modified packages; sources the ROS2 setup.bash file; runs simulation if param2 is TRUE, otherwise does not run. Accepted environment names are: _house_, _parking_, _street_, _testroom_
+- **calc_cpu_avg.sh**: records the system cpu consumption every second, in the "cpu_avg.txt" file.
+- **go_to_goal.sh**: takes two arguments (float: coord_x, float: coord_y) and sends a goal pose to the /navigate_to_pose action server, with the following parameters (frame_id, xyz position, quaternion orientation): (map, x, y, 0.0, 0.0, 0.0, 0.0, 1.0).
 
 ## Testing
 Our costmap inflation layer was configured to use a radius of 0.40. The RGBD camera equipped on turtlebot3 was configured to have a horizontal FOV of 180°.
