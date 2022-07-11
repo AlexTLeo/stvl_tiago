@@ -11,28 +11,24 @@ In this analysis, the performance of the [Spatio-Temporal Voxel Layer](https://g
 Additionally, lab experiments will be conducted on the **TIAGo** robot from **PAL Robotics** to confirm our simulations.
 
 ## Quick Start
-Install [ROS2 Galactic](https://docs.ros.org/en/galactic/Installation/Alternatives/Ubuntu-Development-Setup.html)
-<br>
-Clone this repository in a new workspace and build it
+- Install [ROS2 Galactic](https://docs.ros.org/en/galactic/Installation/Alternatives/Ubuntu-Development-Setup.html)
+- Clone this repository in a new workspace and build it:
 ```
 $ mkdir stvl_ws && cd stvl_ws && mkdir src && cd src
 $ git clone https://github.com/ThanaphonLeonardi/stvl_tiago
 $ cd .. && colcon build
 ```
-<br>
-Install the STVL package
+- Install the STVL package:
 ```
 $ sudo apt-get install ros-galactic-spatio-temporal-voxel-layer
 ```
-<br>
-Source ROS2 and set appropriate environment variables for turtlebot3
+- Source ROS2 and set appropriate environment variables for turtlebot3:
 ```
 $ source /opt/ros/galactic/setup.bash
 $ export TURTLEBOT3_MODEL=waffle
 $ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/<ros2-distro>/share/turtlebot3_gazebo/models
 ```
-<br>
-Run via the simple script that is found in the src directory:
+- Run via the simple script that is found in the src directory:
 ```
 $ ./run_simulation.sh house true
 ```
