@@ -64,7 +64,8 @@ Some other interesting observations were made:
 1. A bigger voxel size actually makes it harder for the robot to navigate tight corridors and pathways, because the limited space gets limited even further by overestimating obstacle sizes.
 2. By activating mapping mode, hundreds of thousands of voxels can be saved and viewed in just a few MBs (yes, Megabytes!) of data, using the **vdb_viewer** from [OpenVDB](https://www.openvdb.org/) (an open-source C++ library from DreamWorks which is at the core of STVL).
 3. In its default configuration, STVL actually sees floating voxels as obstacles, because the costmap projects them onto the floor. This means that small robots like turtlebot3 cannot navigate underneath empty spaces with an overhang, like tables or door frames. A solution that we have found around this issue is configuring two separate STVL layers: one for navigation, which only "sees" obstacles that are of the same height of the robot, and another layer which maps the whole environment around the robot. 
-4. Moving obstacles are correctly visualised, but it is important to deactivate the global stvl layer and to set the local stvl layer to a very low value of voxel_decay
+4. Moving obstacles are correctly visualised, but it is important to deactivate the global stvl layer and to set the local stvl layer to a very low value of voxel_decay.
+5. Tiny obstacles are voxelised: we tried with a coke can and a beer can, with a voxel_size of 0.05m their sizes are obviously overestimated but they are not ignored.
 
 ### Conclusions
 STVL requires a lot of configuration and tuning to properly work, but is a very powerful plugin that is much more computationally efficient than the default nav2 voxel layer. It is versatile, as it can be used for simultaneous navigation and mapping, and it provides a very memory-efficient way of storing mapped data. 
