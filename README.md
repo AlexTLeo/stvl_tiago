@@ -17,7 +17,6 @@ Firstly, we installed the [Galactic Geochelone](https://docs.ros.org/en/galactic
 On top of that, we installed the ROS2 [Navigation 2 Framework v2.1.0.0](https://navigation.ros.org/) and the [STVL](https://github.com/SteveMacenski/spatio_temporal_voxel_layer/tree/galactic) plugin through **apt**.
 
 More specifically, we used the **nav2_bringup** simulation, and we added the STVL layers as plugins to the **nav2_params.yaml**.
-
 For more details follow the tutorials [(STVL) Using an External Costmap Plugin](https://navigation.ros.org/tutorials/docs/navigation2_with_stvl.html).
 
 The simulation was run on [Gazebo](https://gazebosim.org/home) and monitored on [RViz2](https://index.ros.org/p/rviz2/).
