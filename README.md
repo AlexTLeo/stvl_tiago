@@ -98,7 +98,11 @@ Some other interesting observations were made:
 5. Tiny obstacles are voxelised: we tried with a coke can and a beer can, with a voxel_size of 0.05m their sizes are obviously overestimated but they are not ignored.
 
 ### Conclusions
-STVL requires a lot of configuration and tuning to properly work, but is a very powerful plugin that is much more computationally efficient than the default nav2 voxel layer. It is versatile, as it can be used for simultaneous navigation and mapping, and it provides a very memory-efficient way of storing mapped data. 
+STVL requires a lot of configuration and tuning to properly work, but is a very powerful plugin that is much more computationally efficient than the default nav2 voxel layer. It is versatile, as it can be used for simultaneous navigation and mapping, and it provides a very memory-efficient way of storing mapped data.
+
+We can summarise the work done in this diagram:
+
+![diagram](https://github.com/ThanaphonLeonardi/stvl_tiago/blob/main/Diagram.png)
 
 ## Encountered Issues
 We found the documentation to be too superficial, both for navigation2 and STVL. A lot of things had to be discovered by trial-and-error, which requires a lot of time.
