@@ -75,7 +75,7 @@ We found the documentation to be too superficial, both for navigation2 and STVL.
 Another big issue that we encountered was in trying to use a simulated version of TIAGo in our environments (since the experimental tests were conducted on TIAGo). STVL and Navigation2 are intended for ROS2, but TIAGo runs on ROS1. We looked around quite thoroughly around [PAL Robotics' official GitHub](https://github.com/pal-robotics/), and although they provide numerous simulations and tutorials for ROS1 (understandably), their ROS2 branches are still in development and their .rosinstall files are not usable by unauthorised people. Additionally, there was no tutorial on running their simulations on ROS2. We tried manually scouring through their repositories and cross-checking .rosinstall files to try and find all the necessary dependencies required to run their simulations, which we then installed manually one by one, but after dozens of additional required dependencies and failed attempts, we just gave up on this path. 
 
 <br>
-One thing to note, though: a simulation of **TIAGo Iron** on ROS2 does exist for [WeBots](https://cyberbotics.com/), but there were several issues.
+One thing to note, though: a simulation of **TIAGo Iron** on ROS2 does exist for [WeBots] (https://cyberbotics.com/), but there were several issues.
 <br>
 First of all, the RGBD camera is wrongly rotated.
 <br>
