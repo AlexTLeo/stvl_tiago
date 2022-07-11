@@ -197,7 +197,7 @@ local_costmap:
       stvl_layer:
         plugin: "spatio_temporal_voxel_layer/SpatioTemporalVoxelLayer"
         enabled: true
-        voxel_decay: 5.0
+        voxel_decay: 0.3
         decay_model: 0
         voxel_size: 0.05
         track_unknown_space: true
@@ -216,7 +216,7 @@ local_costmap:
           topic: /intel_realsense_r200_depth/points
           marking: true
           clearing: true
-          obstacle_range: 3.0
+          obstacle_range: 50.0
           min_obstacle_height: 0.0
           max_obstacle_height: 2.0
           expected_update_rate: 0.0
@@ -226,8 +226,8 @@ local_costmap:
           clear_after_reading: true
           max_z: 7.0
           min_z: 0.1
-          vertical_fov_angle: 0.8745
-          horizontal_fov_angle: 1.048
+          vertical_fov_angle: 1.2745
+          horizontal_fov_angle: 2.048
           decay_acceleration: 15.0
           model_type: 0
       static_layer:
@@ -271,7 +271,7 @@ global_costmap:
         map_subscribe_transient_local: True
       stvl_layer_mapping:
         plugin: "spatio_temporal_voxel_layer/SpatioTemporalVoxelLayer"
-        enabled: true
+        enabled: false
         voxel_decay: 15.
         decay_model: 0
         voxel_size: 0.05
@@ -307,7 +307,7 @@ global_costmap:
           model_type: 0
       stvl_layer_nav:
         plugin: "spatio_temporal_voxel_layer/SpatioTemporalVoxelLayer"
-        enabled: true
+        enabled: false
         voxel_decay: 45.
         decay_model: 0
         voxel_size: 0.05
